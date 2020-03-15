@@ -6,7 +6,7 @@ BLUE='\033[1;34m'
 SET='\033[0m'
 
 apt-get update
-apt-get install ppp tmux -y
+apt-get install ppp picocom tmux speedtest-cli iodine tcpdump nmap -y
 
 echo "${YELLOW}What is your carrier APN?${SET}"
 read carrierapn 
@@ -49,6 +49,12 @@ do
 		*)   echo "${RED}Wrong Selection, Select among Y or n${SET}";;
 	esac
 done
+
+#wget https://github.com/wbenny/htop/files/573914/htop_2.0.2-2_armhf.deb.zip
+#unzip htop_2.0.2-2_armhf.deb.zip
+#sudo dpkg -i htop_2.0.2-2_armhf.deb
+# In case you want create new default config file:
+#rm -rf ~/.config/htop/htoprc
 
 read -p "Press ENTER key to reboot" ENTER
 reboot
