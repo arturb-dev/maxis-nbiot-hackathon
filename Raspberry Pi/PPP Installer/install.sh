@@ -29,7 +29,7 @@ fi
 			  
 systemctl daemon-reload
 
-echo "${YELLOW}Do you want to activate auto connect/reconnect service at R.Pi boot up? [Y/n] ${SET}"
+echo "${YELLOW}Do you want to activate auto connect/reconnect nbiot service at R.Pi boot up? [Y/n] ${SET}"
 read auto_reconnect
 while [ 1 ]
 do
@@ -40,7 +40,7 @@ do
 			mv nbiot.service /etc/systemd/system/
 			  
 			systemctl daemon-reload
-			systemctl enable reconnect.service
+			systemctl enable nbiot.service
 			  
 			break;;
 			  
