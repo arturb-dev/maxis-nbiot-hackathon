@@ -1,8 +1,8 @@
 
 # /etc/ppp/peers/provider
-/dev/ttyUSB3 115200
+/dev/ttyS0 115200
 # The chat script, customize your APN in this file
-connect 'chat -s -v -f /etc/chatscripts/chat-connect -T M2MXNBIOT'
+connect 'chat -s -v -f /etc/chatscripts/chat-connect -T DEFAULT_APN'
 
 # The close script
 disconnect 'chat -s -v -f /etc/chatscripts/chat-disconnect'
