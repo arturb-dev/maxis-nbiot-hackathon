@@ -6,12 +6,20 @@ BLUE='\033[1;34m'
 SET='\033[0m'
 
 apt-get update
-apt-get install ppp tmux screen putty ufw -y
+apt-get install ppp tmux -y
+
+echo "${YELLOW}What is your carrier APN?${SET}"
+read carrierapn 
+
+echo "${YELLOW}What is your device communication PORT? (ttyS0/ttyUSB3/etc.)${SET}"
+read devicename 
 
 mv chat-connect /etc/chatscripts/
 mv chat-disconnect /etc/chatscripts/
 
 mkdir -p /etc/ppp/peers
+sed -i "s/#APN/$carrierapn/" provider
+sed -i "s/#DEVICE/$devicename/" provider
 mv provider /etc/ppp/peers/provider
 
 if ! (grep -q 'route' /etc/ppp/ip-up ); then
