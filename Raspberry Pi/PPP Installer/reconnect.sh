@@ -9,8 +9,13 @@ while true; do
         else
                 echo "Connection down, reconnecting..."
                 sudo pon
-                sudo ifconfig wwan0 down
+                sleep 1
+                ##sudo ifconfig wwan0 down
+                sleep 1
+                sudo route del default
+                sleep 1
+                sudo route add default ppp0
         fi
 
-        sleep 10
+        sleep 15
 done
